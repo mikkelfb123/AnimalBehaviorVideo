@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="OpenFolder.png" />
+    <None Remove="Pause.png" />
+    <None Remove="Play.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="OpenFolder.png" />
+    <Resource Include="Pause.png" />
+    <Resource Include="Play.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Syncbox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+</Project>

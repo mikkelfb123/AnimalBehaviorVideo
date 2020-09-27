@@ -1,0 +1,199 @@
+﻿<Window x:Class="AnimalBehaviorVideo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AnimalBehaviorVideo"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="850" Width="1450">
+    <Grid Width="1422" Height="800">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
+                    <MediaElement Grid.Row="0" Name="mPlayer1" LoadedBehavior="Manual"  UnloadedBehavior="Manual" IsMuted="True"></MediaElement>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Name="btn_mPlayer1_open" HorizontalAlignment="Center" VerticalAlignment="Center" Width="16" Height="16" Click="btn_open_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/OpenFolder.png"/>
+                            </Button.Background>
+                        </Button>
+                        <Button Grid.Column="1" Name="btn_mPlayer1_play" HorizontalAlignment="Center" VerticalAlignment="Center" Width="16" Height="16" Click="btn_play_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Play.png"/>
+                            </Button.Background>
+                        </Button>
+                        <Button Grid.Column="2" Name="btn_mPlayer1_Pause" HorizontalAlignment="Center" VerticalAlignment="Center" Width="16" Height="16" Click="btn_Pause_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Pause.png"/>
+                            </Button.Background>
+                        </Button>
+                        <Slider Grid.Column="3" Name="sld_mPlayer1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="16" Margin="6,0,6,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Thumb.DragStarted="sld_mPlayer1_DragStarted" Thumb.DragCompleted="sld_mPlayer1_DragCompleted" ValueChanged="sld_mPlayer_ValueChanged">
+                        </Slider>
+                        <Label Grid.Column="4" x:Name="lbl_mPlayer1_duration" Content="00:00:00" FontSize="9" VerticalAlignment="Stretch" HorizontalAlignment="Center" Panel.ZIndex="100" FontFamily="Cambria Math"></Label>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
+                    <MediaElement Grid.Row="0" Name="mPlayer2" LoadedBehavior="Manual"  UnloadedBehavior="Manual" IsMuted="True"></MediaElement>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Name="btn_mPlayer2_open" HorizontalAlignment="Center" VerticalAlignment="Center" Width="16" Height="16" Click="btn_open_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/OpenFolder.png"/>
+                            </Button.Background>
+                        </Button>
+                        <Button Grid.Column="1" Name="btn_mPlayer2_play" HorizontalAlignment="Center" VerticalAlignment="Center" Width="16" Height="16" Click="btn_play_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Play.png"/>
+                            </Button.Background>
+                        </Button>
+                        <Button Grid.Column="2" Name="btn_mPlayer2_Pause" HorizontalAlignment="Center" VerticalAlignment="Center" Width="16" Height="16" Click="btn_Pause_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Pause.png"/>
+                            </Button.Background>
+                        </Button>
+                        <Slider Grid.Column="3" Name="sld_mPlayer2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="16" Margin="6,0,6,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Thumb.DragStarted="sld_mPlayer2_DragStarted" Thumb.DragCompleted="sld_mPlayer2_DragCompleted" ValueChanged="sld_mPlayer2_ValueChanged">
+                        </Slider>
+                        <Label Grid.Column="4" Name="lbl_mPlayer2_duration" Content="00:00:00" FontSize="9" VerticalAlignment="Stretch" HorizontalAlignment="Center" Panel.ZIndex="100" FontFamily="Cambria Math"></Label>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
+                    <MediaElement Grid.Row="0" Name="mPlayer3" LoadedBehavior="Manual"  UnloadedBehavior="Manual" IsMuted="True"></MediaElement>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Name="btn_mPlayer3_open" HorizontalAlignment="Center" VerticalAlignment="Center" Width="16" Height="16" Click="btn_open_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/OpenFolder.png"/>
+                            </Button.Background>
+                        </Button>
+                        <Button Grid.Column="1" Name="btn_mPlayer3_play" HorizontalAlignment="Center" VerticalAlignment="Center" Width="16" Height="16" Click="btn_play_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Play.png"/>
+                            </Button.Background>
+                        </Button>
+                        <Button Grid.Column="2" Name="btn_mPlayer3_Pause" HorizontalAlignment="Center" VerticalAlignment="Center" Width="16" Height="16" Click="btn_Pause_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Pause.png"/>
+                            </Button.Background>
+                        </Button>
+                        <Slider Grid.Column="3" Name="sld_mPlayer3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="16" Margin="6,0,6,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Thumb.DragStarted="sld_mPlayer3_DragStarted" Thumb.DragCompleted="sld_mPlayer3_DragCompleted" ValueChanged="sld_mPlayer3_ValueChanged">
+                        </Slider>
+                        <Label Grid.Column="4" Name="lbl_mPlayer3_duration" Content="00:00:00" FontSize="9" VerticalAlignment="Stretch" HorizontalAlignment="Center" Panel.ZIndex="100" FontFamily="Cambria Math"></Label>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
+                    <MediaElement Grid.Row="0" Name="mPlayer4" LoadedBehavior="Manual"  UnloadedBehavior="Manual" IsMuted="True"></MediaElement>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Name="btn_mPlayer4_open" HorizontalAlignment="Center" VerticalAlignment="Center" Width="16" Height="16" Click="btn_open_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/OpenFolder.png"/>
+                            </Button.Background>
+                        </Button>
+                        <Button Grid.Column="1" Name="btn_mPlayer4_play" HorizontalAlignment="Center" VerticalAlignment="Center" Width="16" Height="16" Click="btn_play_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Play.png"/>
+                            </Button.Background>
+                        </Button>
+                        <Button Grid.Column="2" Name="btn_mPlayer4_Pause" HorizontalAlignment="Center" VerticalAlignment="Center" Width="16" Height="16" Click="btn_Pause_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Pause.png"/>
+                            </Button.Background>
+                        </Button>
+                        <Slider Grid.Column="3" Name="sld_mPlayer4" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="16" Margin="6,0,6,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Thumb.DragStarted="sld_mPlayer4_DragStarted" Thumb.DragCompleted="sld_mPlayer4_DragCompleted" ValueChanged="sld_mPlayer4_ValueChanged">
+                        </Slider>
+                        <Label Grid.Column="4" Name="lbl_mPlayer4_duration" Content="00:00:00" FontSize="9" VerticalAlignment="Stretch" HorizontalAlignment="Center" Panel.ZIndex="100" FontFamily="Cambria Math"></Label>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Name="lbl_sync_globalTime" Content="GT: 00:00:00" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Cambria Math" FontSize="13" FontWeight="Normal" ToolTip="Global Time"></Label>
+                <Label Grid.Column="1" Name="lbl_sync_globalNormTime" Content="GNT: 00:00:00" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Cambria Math" FontSize="13" ToolTip="Global Normalize Time"></Label>
+                <Label Grid.Column="2" Name="lbl_sync_localNormTime" Content="LNT: 00:00:00" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Cambria Math" FontSize="13" ToolTip="Local Normalize Time"></Label>
+
+
+                <Button Grid.Column="3" Name="btn_playAll" HorizontalAlignment="Center" VerticalAlignment="Center" Width="35" Height="35" Margin="1,0,0,0" Click="btn_playAll_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Play.png"/>
+                    </Button.Background>
+                </Button>
+
+                <Button Grid.Column="4" Name="btn_puaseAll" HorizontalAlignment="Center" VerticalAlignment="Center" Width="35" Height="35" Click="btn_puaseAll_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Pause.png"/>
+                    </Button.Background>
+                </Button>
+
+                <Button Grid.Column="5" Name="bnt_sync"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="70" Height="35" Content="SYNC" Click="bnt_sync_Click"></Button>
+
+                <Slider Grid.Column="6" Name="sld_sync_global" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,0,10,0" Thumb.DragStarted="sld_sync_global_DragStarted" Thumb.DragCompleted="sld_sync_global_DragCompleted" ValueChanged="sld_sync_global_ValueChanged"></Slider>
+            </Grid>
+        </Grid>
+        
+      
+    </Grid>
+</Window>
