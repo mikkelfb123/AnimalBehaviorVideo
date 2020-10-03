@@ -85,7 +85,7 @@ namespace AnimalBehaviorVideo {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AnimalBehaviorVideo;component/syncbox.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AnimalBehaviorVideo;V1.0.0.0;component/syncbox.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Syncbox.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

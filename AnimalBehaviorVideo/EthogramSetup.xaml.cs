@@ -52,6 +52,11 @@ namespace AnimalBehaviorVideo
                 return;
             }
 
+            if((EthogramModel)listbox_ethogram.SelectedItem == etho[0])
+            {
+                return;
+            }
+
             MessageBoxResult result = MessageBox.Show("Would you like to remove \"" + listbox_ethogram.SelectedItem + "\" from the list?", "Remove ethogram", MessageBoxButton.YesNo);
             if(result == MessageBoxResult.Yes)
             {

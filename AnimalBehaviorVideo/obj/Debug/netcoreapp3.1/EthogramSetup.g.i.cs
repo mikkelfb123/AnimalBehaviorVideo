@@ -93,7 +93,7 @@ namespace AnimalBehaviorVideo {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AnimalBehaviorVideo;component/ethogramsetup.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AnimalBehaviorVideo;V1.0.0.0;component/ethogramsetup.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\EthogramSetup.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

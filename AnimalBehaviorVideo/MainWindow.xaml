@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AnimalBehaviorVideo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="850" Width="1450">
-    <Grid Width="1422" Height="800">
+        Title="MainWindow" Height="850" Width="1650">
+    <Grid Width="1622" Height="800">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
@@ -16,8 +16,9 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"/>
                 <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="300"/>
             </Grid.ColumnDefinitions>
-            
+
             <Grid Grid.Row="0" Grid.Column="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
@@ -198,32 +199,27 @@
                 <Slider Grid.Column="6" Name="sld_sync_global" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,0,10,0" Thumb.DragStarted="sld_sync_global_DragStarted" Thumb.DragCompleted="sld_sync_global_DragCompleted" ValueChanged="sld_sync_global_ValueChanged"></Slider>
             </Grid>
 
-            <Grid Grid.Row="0" Grid.Column="0" Name="grid_etogam_button">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                </Grid.RowDefinitions>
-
-
-
-            </Grid>
+            <ListView Name="lstView_ethogram_buttens" Grid.Column="0" Focusable="False">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Button Content="{Binding Name}" Margin="2" Click="ethogramButton_Click" Width="80" Height="40" BorderBrush="{Binding BorderColor}" BorderThickness="2"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
             <Grid Grid.Row="1" Grid.Column="0">
                 <Button Name="btn_addEtogram" Content="Add new" Click="btn_addEtogram_Click"></Button>
             </Grid>
+
+            <ListView Grid.Column="2" x:Name="lstV_actionLog">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}"></TextBlock>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                
+            </ListView>
+            
         </Grid>
-        
-      
     </Grid>
 </Window>

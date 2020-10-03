@@ -49,6 +49,8 @@ namespace AnimalBehaviorVideo
         //private List<String> ethograms = new List<string>();
         private ObservableCollection<EthogramModel> Ethograms = new ObservableCollection<EthogramModel>();
 
+        private List<string> actionLog = new List<string>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -57,6 +59,10 @@ namespace AnimalBehaviorVideo
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += timer_Tick;
             timer.Start();
+            lstView_ethogram_buttens.ItemsSource = Ethograms;
+            Ethograms.Add(new EthogramModel() { Name = "No activity", BorderColor = "#33cc33", active=true });
+
+            lstV_actionLog.ItemsSource = actionLog;
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -338,10 +344,6 @@ namespace AnimalBehaviorVideo
             mPlayer4.Pause();
         }
 
-        private void generateEthoGramButton()
-        {
-
-        }
 
         private void btn_addEtogram_Click(object sender, RoutedEventArgs e)
         {
@@ -353,5 +355,40 @@ namespace AnimalBehaviorVideo
             this.IsEnabled = true;
         }
 
+        private void ethogramButton_Click(object sender, RoutedEventArgs e)
+        {
+            string aLogEnd = "";
+            string aLogStart = "";
+
+            Button button = sender as Button;
+            EthogramModel eto = button.DataContext as EthogramModel;
+            for (int i = 1; i < Ethograms.Count; i++)
+            {
+                if (Ethograms[i].Equals(eto))
+                {
+                    Ethograms[i].BorderColor = "#33cc33";
+                    Ethograms[i].active = true;
+                    Ethograms[i].addStartTime(sld_sync_global.Value);
+
+                    aLogStart = lbl_sync_globalNormTime.Content + ": " + Ethograms[i].Name + " start";
+
+                }
+                else
+                {
+                    if(Ethograms[i].active == true)
+                    {
+                        Ethograms[i].active = false;
+                        Ethograms[i].addEndTime(sld_sync_global.Value);
+                        aLogEnd = lbl_sync_globalNormTime.Content + Ethograms[i].Name + ": " + Ethograms[i].StartTime[Ethograms[i].StartTime.Count - 1].ToString() + "-" + Ethograms[i].EndTime[Ethograms[i].StartTime.Count - 1].ToString();
+                    }
+                    Ethograms[i].BorderColor = "#000000";
+                }
+            }
+            actionLog.Add(aLogEnd);
+            actionLog.Add(aLogStart);
+            lstView_ethogram_buttens.Items.Refresh();
+            lstV_actionLog.Items.Refresh();
+        }
     }
+
 }
