@@ -13,7 +13,12 @@
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid Grid.Row="0" Grid.Column="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
@@ -160,7 +165,7 @@
                 </Grid>
             </Grid>
 
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="1" Grid.Column="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100"/>
                     <ColumnDefinition Width="100"/>
@@ -191,6 +196,31 @@
                 <Button Grid.Column="5" Name="bnt_sync"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="70" Height="35" Content="SYNC" Click="bnt_sync_Click"></Button>
 
                 <Slider Grid.Column="6" Name="sld_sync_global" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="10,0,10,0" Thumb.DragStarted="sld_sync_global_DragStarted" Thumb.DragCompleted="sld_sync_global_DragCompleted" ValueChanged="sld_sync_global_ValueChanged"></Slider>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="0" Name="grid_etogam_button">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+
+
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Button Name="btn_addEtogram" Content="Add new" Click="btn_addEtogram_Click"></Button>
             </Grid>
         </Grid>
         

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,7 @@ namespace AnimalBehaviorVideo
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
     public partial class MainWindow : Window
     {
 
@@ -39,10 +41,13 @@ namespace AnimalBehaviorVideo
         //variable for controlling the normalized time
         private double normalizeTime = 0;
         //timespam used for the synced time.
-        private TimeSpan syncedTimeStamp = new TimeSpan(0,0,0);
+        private TimeSpan syncedTimeStamp = new TimeSpan(0, 0, 0);
 
         //bool for controlling if the videos have been synced
         private bool is_synced = false;
+
+        //private List<String> ethograms = new List<string>();
+        private ObservableCollection<EthogramModel> Ethograms = new ObservableCollection<EthogramModel>();
 
         public MainWindow()
         {
@@ -244,6 +249,9 @@ namespace AnimalBehaviorVideo
         //sync button clicked
         private void bnt_sync_Click(object sender, RoutedEventArgs e)
         {
+            pauseAllVideoPlayer();
+            this.IsEnabled = false;
+
             //makes new window of the syncbox class
             Syncbox syncbox = new Syncbox();
             bool? result = syncbox.ShowDialog(); //open it as a dialog so the button push from the Syncbox window is handled easily 
@@ -277,6 +285,7 @@ namespace AnimalBehaviorVideo
                 lbl_sync_localNormTime.Content = "00:00:00";
                 is_synced = true;
             }
+            this.IsEnabled = true;
         }
 
         private void sld_sync_global_DragStarted(object sender, System.Windows.Controls.Primitives.DragStartedEventArgs e)
@@ -318,10 +327,31 @@ namespace AnimalBehaviorVideo
 
         private void btn_puaseAll_Click(object sender, RoutedEventArgs e)
         {
+            pauseAllVideoPlayer();
+        }
+
+        private void pauseAllVideoPlayer()
+        {
             mPlayer1.Pause();
             mPlayer2.Pause();
             mPlayer3.Pause();
             mPlayer4.Pause();
         }
+
+        private void generateEthoGramButton()
+        {
+
+        }
+
+        private void btn_addEtogram_Click(object sender, RoutedEventArgs e)
+        {
+            pauseAllVideoPlayer();
+            this.IsEnabled = false;
+
+            EthogramSetup ethogramSetup = new EthogramSetup(ref Ethograms);
+            ethogramSetup.ShowDialog();
+            this.IsEnabled = true;
+        }
+
     }
 }

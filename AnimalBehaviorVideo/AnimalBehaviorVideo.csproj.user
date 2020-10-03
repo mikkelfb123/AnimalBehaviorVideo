@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="EthogramSetup.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Syncbox.xaml">
       <SubType>Designer</SubType>
     </Page>

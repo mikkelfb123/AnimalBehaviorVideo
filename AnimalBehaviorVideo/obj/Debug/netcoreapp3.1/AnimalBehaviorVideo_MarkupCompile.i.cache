@@ -1,5 +1,5 @@
 ﻿AnimalBehaviorVideo
-
+1.0.0.0
 
 winexe
 C#
@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 C:\Users\mikke\source\repos\AnimalBehaviorVideo\AnimalBehaviorVideo\App.xaml
-2-21810040
+3-366298789
 
-5-1293852352
+8-450976979
 1921654412462
-MainWindow.xaml;Syncbox.xaml;
+EthogramSetup.xaml;MainWindow.xaml;Syncbox.xaml;
 
-False
+True
 
